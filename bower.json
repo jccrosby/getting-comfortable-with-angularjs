@@ -1,0 +1,29 @@
+{
+  "name": "Getting Comfortable with AngularJS",
+  "version": "1.0.0",
+  "homepage": "https://github.com/jccrosby/getting-comfortable-with-angularjs",
+  "authors": [
+    "@jccrosby (johN@realeyes.com)",
+    "@designerJordan (jordan@realeyes.com)"
+  ],
+  "description": "Presentation source for jQuery vs. AngularJS code samples for the Getting Comfortable with AngularJS presentation.",
+  "keywords": [
+    "presentation",
+    "angularjs",
+    "javascript",
+    "jquery"
+  ],
+  "license": "GPL",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-ui": "~1.10.3",
+    "jquery": "~2.0.3"
+  }
+}
