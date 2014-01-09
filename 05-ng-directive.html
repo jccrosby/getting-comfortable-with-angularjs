@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Toggle Panel</title>
+	<script src="bower_components/jquery/jquery.min.js"></script>
+	<script src="bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css" />
+	<link rel="stylesheet" href="css/ng-styles.css" />
+</head>
+<body ng-app="app">
+	
+	<div ng-controller="SliderCtrl">
+		<slider></slider>
+		
+		<div id="view">
+			<h1>I'm The View</h1>
+			<img id="image" ng-style="sliderStyle()" src="images/view-two.jpg" alt="View">
+		</div>
+	</div>
+	
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script>
+		
+		var app = angular.module('app', function(){
+			
+		});
+		
+		app.controller('SliderCtrl', ['$scope', 'SizeModel', function($scope, sizeModel){
+			var DEFAULT_WIDTH = 500;
+			var DEFAULT_HEIGHT = 375;
+			
+			$scope.sliderStyle = function() {
+				return {
+					width: DEFAULT_WIDTH * $scope.scale,
+					height: DEFAULT_HEIGHT * $scope.scale
+				};
+			}
+
+		}]);
+		
+		app.directive('slider', ['SizeModel', function(sizeModel){
+			return {
+				restrict: 'E',
+				template: '<div id="slider"></div>',
+				replace: true,
+				link: function($scope, $element, $attrs) {
+					
+					var $slider = $('#slider');
+					
+					$slider.slider({
+						value: 100,
+						change: function(event, ui) {
+							$scope.scale = $slider.slider('value')/100;
+							// We are changing the model...let everyone know
+							$scope.$apply();
+						}
+					});	
+				}	
+			};
+		}]);
+		
+		/*function SliderCtrl($scope) {
+			var DEFAULT_WIDTH = 500;
+			var DEFAULT_HEIGHT = 375;
+			
+			$('#slider').slider({
+				value: 100,
+				change: function(event, ui) {
+					var scale = $('#slider').slider('value')/100;
+					console.log('scale', scale);
+					var newWidth = DEFAULT_WIDTH * scale;
+					var newHeight = DEFAULT_HEIGHT * scale;
+					$('#image').width(newWidth);
+					$('#image').height(newHeight);
+				}
+			});	
+		}
+		SliderCtrl.$inject = ['$scope'];*/
+	
+	</script>
+</body>
+</html>
