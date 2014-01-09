@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Toggle Panel</title>
+	<script src="bower_components/jquery/jquery.min.js"></script>
+	<script src="bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css" />
+	<link rel="stylesheet" href="css/ng-styles.css" />
+</head>
+<body ng-app>
+	<div ng-controller="PanelCtrl">
+		<button id="viewOne_btn" ng-click="onClickButtonOne()">View One</button>
+		<button id="viewTwo_btn" ng-click="onClickButtonTwo()">View Two</button>
+		
+		<div id="viewOne" ng-show="showViewOne">
+			<h1>I'm View One</h1>
+			<img src="images/view-one.jpg" alt="View One">
+		</div>
+		
+		<div id="viewTwo" ng-hide="showViewOne">
+			<h1>I'm View Two</h1>
+			<img src="images/view-two.jpg" alt="View Two">
+		</div>
+		
+	</div>
+	
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script>
+		function PanelCtrl($scope) {
+			$scope.showViewOne = true;
+			
+			$scope.onClickButtonOne = function() {
+				$scope.showViewOne = true;
+			}
+			
+			$scope.onClickButtonTwo = function() {
+				$scope.showViewOne = false;
+			}		
+		}
+		PanelCtrl.$inject = ['$scope'];
+	
+	</script>
+</body>
+</html>

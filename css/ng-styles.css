@@ -1,0 +1,26 @@
+#viewOne img {
+	width: 500px;
+	height: 375px;
+}
+
+#viewTwo img {
+	width: 500px;
+	height: 375px;
+}
+
+#slider {
+	width: 500px;
+}
+
+
+
+
+
+
+
+
+
+/* ///////////////////////////////////////////////// */
+/* jquery-ui business */
+.ui-slider a {outline:none;}
+/* ///////////////////////////////////////////////// */
