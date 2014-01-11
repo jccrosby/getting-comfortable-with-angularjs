@@ -9,3 +9,5 @@ $ cd getting-comfortable-with-angularjs
 
 $ bower install
 ```  
+
+Then check out http://jccrosby.github.io/getting-comfortable-with-angularjs/
