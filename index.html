@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
-
 <head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Getting Comfortable with AngularJS Presentation by jccrosby</title>
@@ -195,4 +195,146 @@
 
 </body>
 
+=======
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Getting Comfortable with AngularJS Presentation</h1>
+        <p class="header">Code examples and information to get you comfortable with AngularJS</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/jccrosby/getting-comfortable-with-angularjs/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/jccrosby/getting-comfortable-with-angularjs/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/jccrosby/getting-comfortable-with-angularjs">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/jccrosby">jccrosby</a></p>
+
+
+      </header>
+      <section>
+        <h2>
+<a name="what-is-angularjs" class="anchor" href="#what-is-angularjs"><span class="octicon octicon-link"></span></a>What is AngularJS?</h2>
+
+<p>AngularJS is a framework that aids in and speeds up single-page application development. Built and improved to be modular and extensible, it is allows you to to create a toolset and your own framework to fit your application development needs. As a fairly mature (in JavaScript standards) framework that focuses on single-page applications, AngularJS provides well thought out and efficient solutions to problems that you’d encounter while developing single-page applications.   </p>
+
+<h2>
+<a name="what-do-i-need-to-know-to-get-started-with-angularjs" class="anchor" href="#what-do-i-need-to-know-to-get-started-with-angularjs"><span class="octicon octicon-link"></span></a>What do I need to know to get started with AngularJS?</h2>
+
+<p>There are a few terms that will help when discussing and learning Angular. Here are some of the top-level terms with some descriptions and a few more that you’ll hear, but I’ll cover later. </p>
+
+<h3>
+<a name="dependency-injection" class="anchor" href="#dependency-injection"><span class="octicon octicon-link"></span></a>Dependency Injection</h3>
+
+<p>Sounds really complicated, but it is really just providing your system with the objects and data that it needs to operate. Kind of like the arguments that you pass to a method, the dependencies are passed into your controller, services, whatever by Angular. </p>
+
+<h3>
+<a name="models--scope" class="anchor" href="#models--scope"><span class="octicon octicon-link"></span></a>Models &amp; Scope</h3>
+
+<p>In angular the data lives in models. Models exist in a scope. The scope ties the view to the controller &amp; data by providing an execution context. That context is is bound to the DOM. More simply, the scope is where the data and methods that build the view will exist. </p>
+
+<p>Scopes are inherited $rootScope -&gt; $scope</p>
+
+<h3>
+<a name="controllers" class="anchor" href="#controllers"><span class="octicon octicon-link"></span></a>Controllers</h3>
+
+<p>Controllers are where your applications logic is going to live. Controllers are how you add data and methods to the scope so the view (DOM) can be affected. Creating a controller creates a new scope that inherits from the $rootScope. That new $scope is attached to a DOM element and since it inherits from the $rootScope, has access to the data from the $rootScope as well as the new data and methods you add to it in the new controller. </p>
+
+<h3>
+<a name="views" class="anchor" href="#views"><span class="octicon octicon-link"></span></a>Views</h3>
+
+<p>What the user sees. Views render the data in whatever structure you need it to to get the user what they want. The view is the DOM and you attach your controllers to DOM elements. The data &amp; methods in the $scope are what builds and adjusts the view. </p>
+
+<p>Templates, expressions, and binding</p>
+
+<h3>
+<a name="modules" class="anchor" href="#modules"><span class="octicon octicon-link"></span></a>Modules</h3>
+
+<p>A module is a container for your application. It houses the objects that will run when your application starts up. </p>
+
+<h3>
+<a name="directives" class="anchor" href="#directives"><span class="octicon octicon-link"></span></a>Directives</h3>
+
+<p>A very powerful feature of AngularJS. Directives are what and how existing tags are extended and how you can create your own, new tags. </p>
+
+<h3>
+<a name="things-were-not-going-to-cover-here" class="anchor" href="#things-were-not-going-to-cover-here"><span class="octicon octicon-link"></span></a>Things we’re not going to cover here</h3>
+
+<ul>
+<li>Startup/Bootstrap</li>
+<li>Routes</li>
+<li>Services</li>
+<li>Filters</li>
+<li>Partials/Templates</li>
+<li>Shifting your focus</li>
+</ul><h2>
+<a name="use-the-data-not-the-dom" class="anchor" href="#use-the-data-not-the-dom"><span class="octicon octicon-link"></span></a>Use the data not the DOM</h2>
+
+<p>Talk about state and how updating the data should allow the view to change to reflect the updates in the data.</p>
+
+<h2>
+<a name="angular-101" class="anchor" href="#angular-101"><span class="octicon octicon-link"></span></a>Angular 101</h2>
+
+<p>Hello, World (01)
+A jQuery version
+The AngularJS version</p>
+
+<h3>
+<a name="concepts" class="anchor" href="#concepts"><span class="octicon octicon-link"></span></a>Concepts</h3>
+
+<ul>
+<li>Model</li>
+<li>Data bindings</li>
+<li>Expressions
+The View &amp; Control (02)
+A jQuery version
+The AngularJS version
+Concepts</li>
+<li>Controller</li>
+<li>Scope</li>
+<li>Model
+Using an additional library (03)
+A jQuery version
+The AngularJS version
+### Concepts</li>
+<li>Other Libraries</li>
+<li>Structuring Things
+## Structuring code 
+Maintainability, modularity, reuse, working in teams</li>
+</ul><h3>
+<a name="creating-modules" class="anchor" href="#creating-modules"><span class="octicon octicon-link"></span></a>Creating Modules</h3>
+
+<p>Think of modules as a way to group your applications code into a container. Modules can contain controllers, services, directives, filters. They can also depend on other modules. </p>
+
+<p>Module Example: Creating a module (05)</p>
+
+<h4>
+<a name="adding-a-controller-to-the-module" class="anchor" href="#adding-a-controller-to-the-module"><span class="octicon octicon-link"></span></a>Adding a controller to the module.</h4>
+
+<p>Directives - extend the browser. 
+Directives are one of the cooler features of AngularJS. They allow you to extend the functionality of existing tags and create your own.</p>
+
+<p>Some examples of built-in directives:</p>
+
+<ul>
+<li>ngRepeat</li>
+<li>ngShow/ngHide</li>
+<li>ngSwitch</li>
+</ul><p>You can create your own directives too to augment existing or create new tags.
+Directive Example: create a scale slider tag</p>
+
+<h2>
+<a name="summary" class="anchor" href="#summary"><span class="octicon octicon-link"></span></a>Summary</h2>
+
+<p>There is much more that AngularJS has that can be used to build your applications. Hopefully this gets you to where you are comfortable enough to get your application started. </p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+>>>>>>> 15ca463702ed38e8f5879ccb04695423e5ec9307
 </html>
