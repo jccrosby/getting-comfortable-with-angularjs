@@ -7,10 +7,10 @@
 	<link rel="stylesheet" href="bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css" />
 	<link rel="stylesheet" href="css/ng-styles.css" />
 </head>
-<body ng-app="app">
+<body ng-app="SliderApp">
 	
 	<div ng-controller="SliderCtrl">
-		<slider></slider>
+		<scale-slider id="imageScaler" min="0" max="100" step="1"></scale-slider>
 		
 		<div id="view">
 			<h1>I'm The View</h1>
@@ -21,61 +21,50 @@
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script>
 		
-		var app = angular.module('app', function(){
-			
-		});
+		var SliderApp = angular.module('SliderApp', []);
 		
-		app.controller('SliderCtrl', ['$scope', 'SizeModel', function($scope, sizeModel){
-			var DEFAULT_WIDTH = 500;
-			var DEFAULT_HEIGHT = 375;
-			
-			$scope.sliderStyle = function() {
-				return {
-					width: DEFAULT_WIDTH * $scope.scale,
-					height: DEFAULT_HEIGHT * $scope.scale
-				};
-			}
-
-		}]);
-		
-		app.directive('slider', ['SizeModel', function(sizeModel){
-			return {
-				restrict: 'E',
-				template: '<div id="slider"></div>',
-				replace: true,
-				link: function($scope, $element, $attrs) {
-					
-					var $slider = $('#slider');
-					
-					$slider.slider({
-						value: 100,
-						change: function(event, ui) {
-							$scope.scale = $slider.slider('value')/100;
-							// We are changing the model...let everyone know
-							$scope.$apply();
-						}
-					});	
-				}	
-			};
-		}]);
-		
-		/*function SliderCtrl($scope) {
-			var DEFAULT_WIDTH = 500;
-			var DEFAULT_HEIGHT = 375;
-			
-			$('#slider').slider({
-				value: 100,
-				change: function(event, ui) {
-					var scale = $('#slider').slider('value')/100;
-					console.log('scale', scale);
-					var newWidth = DEFAULT_WIDTH * scale;
-					var newHeight = DEFAULT_HEIGHT * scale;
-					$('#image').width(newWidth);
-					$('#image').height(newHeight);
+		SliderApp.controller('SliderCtrl', ['$scope', 
+			function($scope, sizeModel){
+				var DEFAULT_WIDTH = 500;
+				var DEFAULT_HEIGHT = 375;
+				
+				$scope.sliderStyle = function() {
+					return {
+						width: DEFAULT_WIDTH * $scope.scale,
+						height: DEFAULT_HEIGHT * $scope.scale
+					};
 				}
-			});	
-		}
-		SliderCtrl.$inject = ['$scope'];*/
+
+			}]);
+		
+		SliderApp.directive('scaleSlider', [ 
+			function(){
+				return {
+					restrict: 'E',
+					template: '<div></div>',
+					replace: true,
+					link: function($scope, $element, $attrs) {
+						
+						var min = parseInt($attrs.min) || 0; 
+						var max = parseInt($attrs.max) || 100; 
+						var step = parseInt($attrs.step) || 1; 
+						
+						var $slider = $($element);
+						
+						$slider.slider({
+							value: 100,
+							min: min,
+							max: max,
+							step: step,
+							slide: function(event, ui) {
+								$scope.scale = $slider.slider('value')/100;
+								// We are changing the model...let everyone know
+								$scope.$apply();
+							}
+						});	
+					}	
+				};
+			}]);
 	
 	</script>
 </body>
