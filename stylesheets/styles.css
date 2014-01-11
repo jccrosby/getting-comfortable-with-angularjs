@@ -166,7 +166,7 @@ code, pre {
   font-size:14px;
 }
 
-pre {
+pre, .sample {
 	padding: 4px 12px;
   background: #FDFEFB;
   border-radius:4px;
