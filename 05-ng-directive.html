@@ -29,10 +29,11 @@
 				var DEFAULT_HEIGHT = 375;
 				
 				$scope.sliderStyle = function() {
-					return {
-						width: DEFAULT_WIDTH * $scope.scale,
-						height: DEFAULT_HEIGHT * $scope.scale
+					var newStyle = {
+						width: (DEFAULT_WIDTH * $scope.scale) + 'px',
+						height: (DEFAULT_HEIGHT * $scope.scale) + 'px'
 					};
+					return newStyle;
 				}
 
 			}]);
