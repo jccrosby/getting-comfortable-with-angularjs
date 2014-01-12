@@ -4,64 +4,63 @@ layout: main
 {% include header.html %}
 <div class="wrapper">
 	<div ng-app="SliderApp" class="sample">
+		
+		<div ng-controller="SliderCtrl">
+			<scale-slider id="imageScaler" min="0" max="100" step="1"></scale-slider>
+			
+			<div>
+				<img id="image" ng-style="sliderStyle()" src="images/view-two.jpg">
+			</div>
+		</div>
+		<script>
+			
+			var SliderApp = angular.module('SliderApp', []);
+			
+			SliderApp.controller('SliderCtrl', ['$scope', 
+				function($scope, sizeModel){
+					var DEFAULT_WIDTH = 500;
+					var DEFAULT_HEIGHT = 375;
+					
+					$scope.sliderStyle = function() {
+						var newStyle = {
+							width: (DEFAULT_WIDTH * $scope.scale) + 'px',
+							height: (DEFAULT_HEIGHT * $scope.scale) + 'px'
+						};
+						return newStyle;
+					}
 
-	    <div ng-controller="SliderCtrl">
-	        <scale-slider min="0" max="100" step="1"></scale-slider>
-
-	        <div id="view">
-	            <h1>I'm The View</h1>
-	            <img id="image" ng-style="sliderStyle()" src="images/view-two.jpg" alt="View">
-	        </div>
-	    </div>
-
-	    <script>
-		    var SliderApp = angular.module('SliderApp', []);
-
-		    SliderApp.controller('SliderCtrl', ['$scope',
-		        function($scope) {
-		            var DEFAULT_WIDTH = 500;
-		            var DEFAULT_HEIGHT = 375;
-
-		            $scope.sliderStyle = function() {
-		                return {
-		                    width: DEFAULT_WIDTH * $scope.scale,
-		                    height: DEFAULT_HEIGHT * $scope.scale
-		                };
-		            }
-
-		        }
-		    ]);
-
-		    SliderApp.directive('scaleSlider', [
-		        function() {
-		            return {
-		                restrict: 'E',
-		                template: '<div></div>',
-		                replace: true,
-		                link: function($scope, $element, $attrs) {
-
-		                    var min = parseInt($attrs.min) || 0;
-		                    var max = parseInt($attrs.max) || 100;
-		                    var step = parseInt($attrs.step) || 1;
-
-		                    var $slider = $($element);
-
-		                    $slider.slider({
-		                        value: 100,
-		                        min: min,
-		                        max: max,
-		                        step: step,
-		                        slide: function(event, ui) {
-		                            $scope.scale = $slider.slider('value') / 100;
-		                            // We are changing the model...let everyone know
-		                            $scope.$apply();
-		                        }
-		                    });
-		                }
-		            };
-		        }
-		    ]);
-	    </script>
+				}]);
+			
+			SliderApp.directive('scaleSlider', [ 
+				function(){
+					return {
+						restrict: 'E',
+						template: '<div></div>',
+						replace: true,
+						link: function($scope, $element, $attrs) {
+							
+							var min = parseInt($attrs.min) || 0; 
+							var max = parseInt($attrs.max) || 100; 
+							var step = parseInt($attrs.step) || 1; 
+							
+							var $slider = $($element);
+							
+							$slider.slider({
+								value: 100,
+								min: min,
+								max: max,
+								step: step,
+								slide: function(event, ui) {
+									$scope.scale = $slider.slider('value')/100;
+									// We are changing the model...let everyone know
+									$scope.$apply();
+								}
+							});	
+						}	
+					};
+				}]);
+		
+		</script>
 	</div>
 </div>
 {% include footer.html %}
