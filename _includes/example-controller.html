@@ -1,5 +1,4 @@
-{% raw %}
-<div ng-app>
+<div id="ctrlMod">
 	<div ng-controller="SliderCtrl">
 		<div id="slider01"></div>
 		<div id="view">
@@ -8,7 +7,9 @@
 		</div>
 	</div>
 </div>
-<script>        
+<script>   
+	var ctrlMod = angular.module('ctrlMod', []);
+	angular.bootstrap($('#ctrlMod'), ['ctrlMod']);     
 	function SliderCtrl($scope) {
 	    var DEFAULT_WIDTH = 500;
 	    var DEFAULT_HEIGHT = 375;
@@ -28,4 +29,3 @@
 	}
 	SliderCtrl.$inject = ['$scope'];
 </script>
-{% endraw %}

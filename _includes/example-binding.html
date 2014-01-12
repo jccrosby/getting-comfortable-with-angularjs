@@ -1,11 +1,10 @@
 {% raw %}
-<div ng-controller="HelloWorldCtrl">
+<div id="bindingMod">
     <h1>Hello, {{helloName}}!</h1>
     <input type="text" name="name" placeholder="Your name here..." ng-model="helloName">
 </div>
-<script>
-	var HelloWorldCtrl = sampleApp.controller('HelloWorldCtrl', function() {
-
-	});
-</script>
 {% endraw %}
+<script>
+	var bindingMod = angular.module('bindingMod', []);
+	angular.bootstrap($('#bindingMod'), ['bindingMod']);
+</script>

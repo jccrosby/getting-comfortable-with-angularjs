@@ -1,10 +1,9 @@
 {% raw %}
-<div ng-controller="ExpressionSampleCtrl"> 
+<div id="expModule"> 
 	<p>3 x 3 = {{3 * 3}}</p>
-</div>	
-<script>
-	var ExpressionSampleCtrl = sampleApp.controller('ExpressionSampleCtrl', function(){
-		
-	});
-</script>
+</div>
 {% endraw %}
+<script>
+	var expModule = angular.module('expModule', []);
+	angular.bootstrap($('#expModule'), ['expModule']);
+</script>

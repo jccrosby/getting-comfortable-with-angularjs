@@ -107,51 +107,49 @@ layout: main
 				<span class="octicon octicon-link"></span>
 			</a>Angular 101
 		</h1>
-		<script>
-			var sampleApp = angular.module('sampleApp', []);
-		</script>
-		<div ng-app="sampleApp">
-			<h2>Expressions</h2>
-			{% gist 8378685 %}
-			<h4>Result</h4>
-			<div class="sample">
-				{% include example-expression.html %}
-			</div>
-
-			<h4>Concepts</h4>
-			<ul>
-				<li>Expressions</li>
-			</ul>
-
-			<h2>Hello Data Binding</h2>
-			{% gist 8378713 %}
-			<h4>Result</h4>
-			<div class="sample">
-				{% include example-binding.html %}
-			</div>
-
-			<h4>Concepts</h4>
-			<ul>
-				<li>Model</li>
-				<li>Data bindings</li>
-			</ul>
-			
-			<h2>Control &amp; Using a another library</h2>
-			{% gist 8378692 %}
-			<h4>Result</h4>
-			<div class="sample">
-				{% include example-controller.html %}
-			</div>
-
-			<h4>Concepts</h4>
-			<ul>
-				<li>Controller</li>
-				<li>Scope</li>
-				<li>Model</li>
-				<li>Using a another library (jQuery/jQuery UI)</li>
-			</ul>
-		</div>
 		
+		<h2>Expressions</h2>
+		{% gist 8378685 %}
+	
+		<h4>Result</h4>
+		<div class="sample">
+			{% include example-expression.html %}
+		</div>
+	
+		<h4>Concepts</h4>
+		<ul>
+			<li>Expressions</li>
+		</ul>
+
+		<h2>Hello Data Binding</h2>
+		{% gist 8378713 %}
+		<h4>Result</h4>
+		<div class="sample">
+			{% include example-binding.html %}
+		</div>
+
+		<h4>Concepts</h4>
+		<ul>
+			<li>Model</li>
+			<li>Data bindings</li>
+		</ul>
+		
+		<h2>Control &amp; Using a another library</h2>
+		{% gist 8378692 %}
+		<h4>Result</h4>
+		<div class="sample">
+			{% include example-controller.html %}
+		</div>
+
+		<h4>Concepts</h4>
+		<ul>
+			<li>Controller</li>
+			<li>Scope</li>
+			<li>Model</li>
+			<li>Using a another library (jQuery/jQuery UI)</li>
+		</ul>
+	
+	
 		<h2>Structuring Things </h2>
 		<p>Structuring code</p>
 		<p>Maintainability, modularity, reuse, working in teams</p>
@@ -165,7 +163,7 @@ layout: main
 		
 		<h4>Module Example: Creating a module</h4>
 		{% gist 8378676 %}
-		<a href="example-module.html" title="AngularJS example for using a module." target="_blank">View Result</a>
+		{% include example-module.html %}
 		
 		<h2>Directives</h2>
 		<p>Directives - extend the browser. Directives are one of the cooler features of AngularJS. They allow you to extend the functionality of existing tags and create your own.</p>
@@ -181,7 +179,7 @@ layout: main
 		
 		<h4>Directive Example: Scale Slider</h4>
 		{% gist 8378789 %}
-		<a href="example-directive.html" title="AngularJS directive example." target="_blank">View Result</a>
+		{% include example-directive.html %}
 		<h2>
 			<a name="summary" class="anchor" href="#summary">
 				<span class="octicon octicon-link"></span>

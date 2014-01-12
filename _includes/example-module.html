@@ -1,0 +1,37 @@
+<div id="SliderModuleApp" class="sample">
+    <div ng-controller="SliderModuleCtrl">
+        <div id="slider02"></div>
+        <div id="view02">
+            <h1>I'm The View</h1>
+            <img id="image02" src="images/view-two.jpg" alt="View">
+        </div>
+    </div>
+    <script>
+    var SliderModuleApp = angular.module('SliderModuleApp', []);
+
+    var SliderModuleCtrl = SliderModuleApp.controller('SliderModuleCtrl', ['$scope',
+        function($scope) {
+            var DEFAULT_WIDTH = 500;
+            var DEFAULT_HEIGHT = 375;
+
+            $('#slider02').slider({
+                value: 50,
+                slide: function(event, ui) {
+                    var scale = $('#slider02').slider('value') / 100;
+
+                    var newWidth = DEFAULT_WIDTH * scale;
+                    var newHeight = DEFAULT_HEIGHT * scale;
+                    $('#image02').width(newWidth);
+                    $('#image02').height(newHeight);
+                }
+            });
+
+            $('#image02').width(DEFAULT_WIDTH * .5);
+            $('#image02').height(DEFAULT_HEIGHT * .5);
+
+        }
+    ]);
+    
+    angular.bootstrap($('#SliderModuleApp'), ['SliderModuleApp']);
+    </script>
+</div>
