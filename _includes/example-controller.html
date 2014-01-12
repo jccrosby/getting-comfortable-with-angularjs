@@ -1,0 +1,31 @@
+{% raw %}
+<div ng-app>
+	<div ng-controller="SliderCtrl">
+		<div id="slider01"></div>
+		<div id="view">
+			<h1>I'm The View</h1>
+			<img id="image01" src="images/view-two.jpg" alt="View">
+		</div>
+	</div>
+</div>
+<script>        
+	function SliderCtrl($scope) {
+	    var DEFAULT_WIDTH = 500;
+	    var DEFAULT_HEIGHT = 375;
+	    
+	    $('#slider01').slider({
+	            value: 50,
+	            slide: function(event, ui) {
+	                    var scale = $('#slider01').slider('value')/100;
+	                    var newWidth = DEFAULT_WIDTH * scale;
+	                    var newHeight = DEFAULT_HEIGHT * scale;
+	                    $('#image01').width(newWidth);
+	                    $('#image01').height(newHeight);
+	            }
+	    });
+	    $('#image01').width(DEFAULT_WIDTH*.5);
+		$('#image01').height(DEFAULT_HEIGHT*.5);
+	}
+	SliderCtrl.$inject = ['$scope'];
+</script>
+{% endraw %}

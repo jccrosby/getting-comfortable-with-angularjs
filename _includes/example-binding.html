@@ -1,0 +1,11 @@
+{% raw %}
+<div ng-controller="HelloWorldCtrl">
+    <h1>Hello, {{helloName}}!</h1>
+    <input type="text" name="name" placeholder="Your name here..." ng-model="helloName">
+</div>
+<script>
+	var HelloWorldCtrl = sampleApp.controller('HelloWorldCtrl', function() {
+
+	});
+</script>
+{% endraw %}

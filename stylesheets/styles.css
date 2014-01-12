@@ -58,6 +58,10 @@ h1,h2, h3 {
 	padding-bottom: 5px;
 }
 
+.sample h1, h2, h3, h4, h5, h6 {
+	border-bottom: none;
+}
+
 h1 {
 	font-size: 30px;
 }
@@ -419,3 +423,8 @@ footer {
     color:#444;
   }
 }
+
+/* ///////////////////////////////////////////////// */
+/* jquery-ui business */
+.ui-slider a {outline:none;}
+/* ///////////////////////////////////////////////// */
