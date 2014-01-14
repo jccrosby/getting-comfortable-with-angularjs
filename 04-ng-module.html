@@ -29,7 +29,7 @@
 			
 			$('#slider').slider({
 				value: 100,
-				change: function(event, ui) {
+				slide: function(event, ui) {
 					var scale = $('#slider').slider('value')/100;
 					console.log('scale', scale);
 					var newWidth = DEFAULT_WIDTH * scale;

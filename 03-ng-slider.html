@@ -27,7 +27,7 @@
 			
 			$('#slider').slider({
 				value: 100,
-				change: function(event, ui) {
+				slide: function(event, ui) {
 					var scale = $('#slider').slider('value')/100;
 					console.log('scale', scale);
 					var newWidth = DEFAULT_WIDTH * scale;
@@ -38,30 +38,6 @@
 			});	
 		}
 		SliderCtrl.$inject = ['$scope'];
-	
-	// TODO: Modules
-		/*var SliderApp = angular.module('SliderApp', function(){
-			
-		});
-		var SliderCtrl = SliderApp.controller('SliderCtrl', ['$scope', function($scope){
-			
-			var DEFAULT_WIDTH = 500;
-			var DEFAULT_HEIGHT = 375;
-			
-	// TODO: Directives
-			$('#slider').slider({
-				value: 100,
-				change: function(event, ui) {
-					var scale = $('#slider').slider('value')/100;
-					console.log('scale', scale);
-					var newWidth = DEFAULT_WIDTH * scale;
-					var newHeight = DEFAULT_HEIGHT * scale;
-					$('#image').width(newWidth);
-					$('#image').height(newHeight);
-				}
-			});
-			
-		}]);*/
 	</script>
 </body>
 </html>

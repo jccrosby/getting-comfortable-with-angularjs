@@ -10,7 +10,7 @@
 <body ng-app="SliderApp">
 	
 	<div ng-controller="SliderCtrl">
-		<scale-slider id="imageScaler" min="0" max="100" step="1"></scale-slider>
+		<scale-slider min="0" max="100" step="1"></scale-slider>
 		
 		<div id="view">
 			<h1>I'm The View</h1>
@@ -42,25 +42,25 @@
 			function(){
 				return {
 					restrict: 'E',
-					template: '<div></div>',
+					template: '<div id="slider"></div>',
 					replace: true,
-					link: function($scope, $element, $attrs) {
+					link: function(scope, element, attrs) {
 						
-						var min = parseInt($attrs.min) || 0; 
-						var max = parseInt($attrs.max) || 100; 
-						var step = parseInt($attrs.step) || 1; 
+						var min = parseInt(attrs.min) || 0; 
+						var max = parseInt(attrs.max) || 100; 
+						var step = parseInt(attrs.step) || 1; 
 						
-						var $slider = $($element);
+						var slider = $(element);
 						
-						$slider.slider({
+						slider.slider({
 							value: 100,
 							min: min,
 							max: max,
 							step: step,
 							slide: function(event, ui) {
-								$scope.scale = $slider.slider('value')/100;
+								scope.scale = slider.slider('value')/100;
 								// We are changing the model...let everyone know
-								$scope.$apply();
+								scope.$apply();
 							}
 						});	
 					}	

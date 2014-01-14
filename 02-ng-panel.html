@@ -9,8 +9,8 @@
 </head>
 <body ng-app>
 	<div ng-controller="PanelCtrl">
-		<button id="viewOne_btn" ng-click="onClickButtonOne()">View One</button>
-		<button id="viewTwo_btn" ng-click="onClickButtonTwo()">View Two</button>
+		<button id="viewOne_btn" ng-click="onClickButtonOne()" ng-disabled="showViewOne">View One</button>
+		<button id="viewTwo_btn" ng-click="onClickButtonTwo()" ng-disabled="!showViewOne">View Two</button>
 		
 		<div id="viewOne" ng-show="showViewOne">
 			<h1>I'm View One</h1>
