@@ -11,3 +11,7 @@ $ bower install
 ```  
 
 Then check out http://jccrosby.github.io/getting-comfortable-with-angularjs/
+
+## Don't know about Bower?  
+A package manager for the web.
+http://bower.io/
